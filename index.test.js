@@ -33,23 +33,50 @@ describe('Band, Musician, and Song Models', () => {
     })
 
     test('can update a Band', async () => {
-        
-        expect('NO TEST').toBe('EXPECTED VALUE HERE');
+        const updatedBand = await Band.update({
+            name: 'Sade',
+            genre: 'Quiet Storm'
+        });
+        expect(updatedBand.name).toBe('Sade');
+        expect(updatedBand.genre).toBe('Quiet Storm');
     })
 
     test('can update a Musician', async () => {
-        // TODO - test updating a musician
-        expect('NO TEST').toBe('EXPECTED VALUE HERE');
+        const updatedMusician = await Musician.update({
+            name: 'Paul Denman',
+            instrument: 'bass guitar'
+        });
+        expect(updatedMusician.name).toBe('Paul Denman');
+        expect(updatedMusician.instrument).toBe('bass guitar');
+    })
+
+    test('can update a Song', async () => {
+        const updatedSong = await Song.update({
+            name: 'The Sweetest Taboo',
+            year: '1985',
+            length: '04:37'
+        })
+        expect(updatedSong.name).toBe('The Sweetest Taboo');
+        expect(updatedSong.year).toBe('1985');
+        expect(updatedSong.length).toBe('04:37');
     })
 
     test('can delete a Band', async () => {
-        // TODO - test deleting a band
-        expect('NO TEST').toBe('EXPECTED VALUE HERE');
+        const foundBand = Band.findbyPk(1);
+        await foundBand.destroy();
+        expect(Band.findbyPk(1)).toBe(null);
     })
 
     test('can delete a Musician', async () => {
-        // TODO - test deleting a musician
-        expect('NO TEST').toBe('EXPECTED VALUE HERE');
+        const foundMusician = Musician.findbyPk(1);
+        await foundMusician.destroy();
+        expect(Musician.findbyPk(1)).toBe(null);
+    })
+
+    test('can delete a Song', async () => {
+        const foundSong = Song.findbyPk(1);
+        await foundSong.destroy();
+        expect(Song.findbyPk(1)).toBe(null);
     })
 
     test('can increment and decrement properly', async () => {
