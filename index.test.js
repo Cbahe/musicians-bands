@@ -1,5 +1,6 @@
 const { sequelize } = require('./db');
-const { Band, Musician, Song } = require('./index')
+//const { Band, Musician, Song } = require('./index')
+const { Band, Musician, Song } = require('./models');
 
 describe('Band, Musician, and Song Models', () => {
     /**
@@ -41,4 +42,12 @@ describe('Band, Musician, and Song Models', () => {
         // TODO - test deleting a musician
         expect('NO TEST').toBe('EXPECTED VALUE HERE');
     })
+
+    test('can increment and decrement properly', async () => {
+        const band = await Band.findOne({ where: { name: 'The Beatles' } });
+        const incrementResult = await band.increment('songCount');
+        const decrementResult = await band.decrement('songCount');
+        expect(incrementResult.songCount).toBe(1);
+        expect(decrementResult.songCount).toBe(0);
+    });
 })
