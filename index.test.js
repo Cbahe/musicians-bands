@@ -13,17 +13,26 @@ describe('Band, Musician, and Song Models', () => {
     })
 
     test('can create a Band', async () => {
-        // TODO - test creating a band
-        expect('NO TEST').toBe('EXPECTED VALUE HERE');
+        const testBand = await Band.create({name: 'Pearl Jam', genre: 'Grunge'});
+        expect(testBand.name).toBe('Pearl Jam');
+        expect(testBand.genre).toBe('Grunge');
     })
 
     test('can create a Musician', async () => {
-        // TODO - test creating a musician
-        expect('NO TEST').toBe('EXPECTED VALUE HERE');
+        const testMusician = await Musician.create({name: 'Eddie Vedder' , instrument: 'lead vocals'});
+        expect(testMusician.name).toBe('Eddie Vedder');
+        expect(testMusician.instrument).toBe('lead vocals');
+    })
+
+    test('can create a Song', async () => {
+        const testSong = await Song.create({title: 'Even Flow', year: '1991', length: '04:53'});
+        expect(testSong.name).toBe('Even Flow');
+        expect(testSong.year).toBe('1991');
+        expect(testSong.length).toBe('04:53');
     })
 
     test('can update a Band', async () => {
-        // TODO - test updating a band
+        
         expect('NO TEST').toBe('EXPECTED VALUE HERE');
     })
 
