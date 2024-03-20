@@ -1,6 +1,6 @@
 const { sequelize } = require('./db');
-//const { Band, Musician, Song } = require('./index')
-const { Band, Musician, Song } = require('./models');
+const { Band, Musician, Song } = require('./index')
+//const { Band, Musician, Song } = require('./models');
 
 describe('Band, Musician, and Song Models', () => {
     /**
