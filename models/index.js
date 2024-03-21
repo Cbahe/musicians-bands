@@ -1,6 +1,6 @@
-const { Band } = require('./models/Band')
-const { Musician } = require('./models/Musician')
-const { Song } = require("./models/Song")
+const { Band } = require('./Band')
+const { Musician } = require('./Musician')
+const { Song } = require("./Song")
 // Define associations here
 // A Band has many Musicians
 Band.hasMany(Musician);
@@ -13,6 +13,8 @@ Song.belongsTo(Band);
 // A Musician has many Songs
 Musician.hasMany(Song);
 
+Song.hasMany(Band);
+Band.belongsTo(Song);
 
 
 module.exports = {

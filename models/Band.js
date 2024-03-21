@@ -2,10 +2,12 @@ const { Sequelize, sequelize } = require('../db');
 
 // TODO - define the Band model
 const Band = sequelize.define('Band', {
-    name: {
-        type: Sequelize.STRING,
-        genre: Sequelize.STRING
-    }
+        name: Sequelize.STRING,
+        genre: Sequelize.STRING,
+        songCount: {
+            type: Sequelize.INTEGER,
+            defaultValue: 0
+        }
 }, {
     instanceMethods: {
         toString() {
